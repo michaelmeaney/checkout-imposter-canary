@@ -1,8 +1,10 @@
-# GitHub Actions imposter-commit canary
+# GitHub Actions imposter commit canary
 
 This repository is a harmless security demonstration.
 
 It exists to show why full SHA pinning in GitHub Actions is necessary but insufficient. A commit SHA can be immutable while still not belonging to the repository shown in a workflow `uses:` reference.
+
+> **Terminology:** this repository uses **imposter commit** in prose. Zizmor's exact audit identifier is `impostor-commit`, which is preserved where the rule itself is referenced.
 
 ## What this demonstrates
 
@@ -14,7 +16,7 @@ uses: actions/checkout@[full-sha]
 
 while the pinned SHA belongs only to the fork network and is not part of the declared `actions/checkout` repository's own history.
 
-That is the imposter-commit pattern.
+That is the imposter commit pattern.
 
 The lesson is:
 
@@ -33,7 +35,7 @@ This repository contains:
 
 ## Do not use this action in production
 
-It exists only to demonstrate the imposter-commit pattern and the value of deterministic provenance checks such as Zizmor.
+It exists only to demonstrate the imposter commit pattern and the value of deterministic provenance checks such as Zizmor.
 
 ## Expected demo
 
@@ -52,7 +54,7 @@ If you take GitHub Actions security seriously, treat workflow actions as executa
 
 - require full SHA pinning for third-party actions
 - verify that each SHA is present in the declared `owner/repo` history, rather than merely resolvable through its fork network
-- run Zizmor for `impostor-commit` and related workflow risks
+- run Zizmor's `impostor-commit` audit and related workflow checks
 - use deterministic tooling such as `pinact` for action pinning
 - use lockfile-style tools such as `ghasum` or `gh-actions-lockfile` for integrity evidence and transitive visibility
 - prefer curated internal actions and reusable workflows

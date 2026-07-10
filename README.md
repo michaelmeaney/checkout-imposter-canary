@@ -1,4 +1,4 @@
-# GitHub Actions impostor-commit canary
+# GitHub Actions imposter-commit canary
 
 This repository is a harmless security demonstration.
 
@@ -14,7 +14,7 @@ uses: actions/checkout@[full-sha]
 
 while the pinned SHA belongs only to the fork network and is not part of the declared `actions/checkout` repository's own history.
 
-That is the impostor-commit pattern.
+That is the imposter-commit pattern.
 
 The lesson is:
 
@@ -33,7 +33,7 @@ This repository contains:
 
 ## Do not use this action in production
 
-It exists only to demonstrate the impostor-commit pattern and the value of deterministic provenance checks such as Zizmor.
+It exists only to demonstrate the imposter-commit pattern and the value of deterministic provenance checks such as Zizmor.
 
 ## Expected demo
 
@@ -41,7 +41,7 @@ A separate demo repository should contain two workflows:
 
 | Workflow | Purpose | Expected result |
 |---|---|---|
-| A — ungated | Shows that an impostor commit can execute | Canary warning appears in logs |
+| A — ungated | Shows that an imposter commit can execute | Canary warning appears in logs |
 | B — provenance-gated | Runs a provenance check before the protected job | Zizmor detects `impostor-commit` and fails closed |
 
 ## Defensive controls

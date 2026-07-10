@@ -1,4 +1,4 @@
-name: Checkout Impostor Commit Canary
+name: Checkout Imposter Commit Canary
 description: Harmless canary action demonstrating that SHA pinning is not repository provenance.
 
 runs:
@@ -7,4 +7,4 @@ runs:
     - name: Emit canary warning
       shell: bash
       run: |
-        echo "::warning title=Impostor commit canary::This action should not have executed. The workflow used a SHA that was not proven to belong to the declared action repository."
+        echo "::warning title=Imposter commit canary::This action should not have executed. The workflow used a SHA that was not proven to belong to the declared action repository."
